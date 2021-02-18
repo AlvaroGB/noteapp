@@ -1,6 +1,6 @@
 import uuid
 from datetime import date
-
+#import flask from flask
 
 # GLOBAL VARIABLES
 
@@ -16,7 +16,7 @@ today = 20210213
 
 # FUNCTIONS
 
-def CreateNote(new_note):
+def create_note(new_note):
     new_dict = {"id": str(uuid.uuid1()),
                 "name": new_note,
                 "date": today,
@@ -26,7 +26,7 @@ def CreateNote(new_note):
     return print(notes)
 
 
-def ArchiveNote(old_uuid):
+def archive_note(old_uuid):
     for i in range(len(notes)):
         if notes[i]['id'] == old_uuid:
             archive.append(notes[i])
@@ -36,12 +36,17 @@ def ArchiveNote(old_uuid):
     return print(notes)
 
 
+def edit_note():
+    return
+
+
 # EXECUTION
 
-CreateNote('Doing the dishes')
+create_note('Doing the dishes')
+
 print('Tasks to complete: ' + str(len(notes)))
 print(notes)
 
-ArchiveNote("f73cc840-0118-41d1-85fe-602517cd1d24")
+archive_note("f73cc840-0118-41d1-85fe-602517cd1d24")
 print('Task has been archived: ')
 print(archive)
